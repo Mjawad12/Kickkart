@@ -226,7 +226,7 @@ export default function Cart() {
                         <div className="even-columns">
                           <p>SALE PRICE : </p> <span> ${el.salePrice}</span>
                         </div>
-                        <i onClick={handleDelete} class="fa-solid fa-trash"></i>
+                        <i onClick={handleDelete} className="fa-solid fa-trash"></i>
                       </div>
                     </div>
                     <hr />
