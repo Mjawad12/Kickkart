@@ -236,7 +236,9 @@ hr {
   padding-inline: var(--size-300);
   margin-inline: auto;
 }
-
+.overflow_Wrapper{
+  overflow-x: hidden;
+}
 .Container-footer {
   width: 100%;
   background-color: var(--clr-neutral-400);
@@ -2750,6 +2752,7 @@ hr {
 
 .Wish_List {
   height: 70vh;
+  padding-inline: 1rem;
 }
 .WishList {
   max-width: 1000px;
@@ -3189,7 +3192,7 @@ hr {
 }
 
 @media (max-width: 50em) {
-  .Mainlogo {
+  .search_nav .Mainlogo {
     display: none;
   }
   .SearchRepresentation {
@@ -3198,8 +3201,8 @@ hr {
   }
 }
 @media (max-width: 40em) {
-  .Mainlogo {
-    display: none;
+  .search_nav .Mainlogo {
+    display:  none;
   }
   .SearchRepresentation {
     grid-template-columns: 1fr 1fr;

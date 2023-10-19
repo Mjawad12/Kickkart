@@ -73,7 +73,7 @@ export default function Product() {
 
   return (
     <>
-      <div className="products">
+      <div className="products overflow_Wrapper">
         {currentShoes &&
           currentShoes.slice(0, results).map((Shoe) => {
             return (

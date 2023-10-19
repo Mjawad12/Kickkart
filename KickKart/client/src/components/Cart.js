@@ -103,6 +103,8 @@ export default function Cart() {
   return (
     <>
       <Banner></Banner>
+      <div className="overflow_Wrapper">
+
       <div className="container">
         <h1
           style={{ paddingTop: "1rem" }}
@@ -141,9 +143,9 @@ export default function Cart() {
                   let k = [];
                   let items = JSON.parse(localStorage.getItem("Ci"));
                   items &&
-                    items.map((it) => {
-                      if (it.image != el.image) {
-                        if (!k.includes(el)) k = k.concat(it);
+                  items.map((it) => {
+                    if (it.image != el.image) {
+                      if (!k.includes(el)) k = k.concat(it);
                       }
                     });
                   const element =
@@ -157,7 +159,7 @@ export default function Cart() {
                     amountCal();
                   }, 1000);
                 };
-
+                
                 return (
                   <div
                     ref={itemRef}
@@ -167,12 +169,12 @@ export default function Cart() {
                     <div className="WishListItem | even-columns ">
                       {el.brand === "adidas" ? (
                         <img
-                          style={{ transform: "ScaleX(-1)" }}
-                          src={el.image}
+                        style={{ transform: "ScaleX(-1)" }}
+                        src={el.image}
                           alt="shoes"
-                        ></img>
-                      ) : (
-                        <img src={el.image} alt="shoes"></img>
+                          ></img>
+                          ) : (
+                            <img src={el.image} alt="shoes"></img>
                       )}
 
                       <div className="WItext  | even-columns opposite-columns">
@@ -266,6 +268,7 @@ export default function Cart() {
           </div>
         </div>
       </div>
+                </div>
       <Member></Member>
       <Footer></Footer>
     </>
