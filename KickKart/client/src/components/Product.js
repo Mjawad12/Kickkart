@@ -47,7 +47,7 @@ export default function Product() {
     const observer = new IntersectionObserver((els) => {
       els.forEach((el) => {
         if (el.isIntersecting) {
-          if (results > currentShoes.length) {
+          if (results >= currentShoes.length) {
             setloading("false");
           } else {
             setloading("true");
@@ -60,7 +60,7 @@ export default function Product() {
     setTimeout(() => {
       checker.current && observer.observe(checker.current);
     }, 2000);
-    if (results > currentShoes.length) {
+    if (results >= currentShoes.length) {
       setloading("false");
     }
   }, []);
