@@ -14,6 +14,7 @@ export default function Product() {
   // states
   const [results, setresults] = useState(10);
   const [loading, setloading] = useState("false");
+  const [ArtificailLoading, setArtificailLoading] = useState("false");
 
   //  getting All shoes
   useEffect(() => {
@@ -36,7 +37,10 @@ export default function Product() {
   }, [location.pathname]);
 
   useEffect(() => {
-    setresults(0);
+    setArtificailLoading("true");
+    setTimeout(() => {
+      setArtificailLoading("false");
+    }, 1000);
   }, [currentShoes]);
   //  Loading Animation
   useEffect(() => {
@@ -73,7 +77,8 @@ export default function Product() {
 
   return (
     <>
-      <div className="products overflow_Wrapper">
+      <div className="products overflow_Wrapper even-columns opposite-columns">
+        {ArtificailLoading === "true" && <Loader></Loader>}
         {currentShoes &&
           currentShoes.slice(0, results).map((Shoe) => {
             return (
