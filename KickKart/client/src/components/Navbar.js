@@ -21,6 +21,7 @@ export default function Navbar() {
   const collectionMobMenu = useRef("");
   const Account = useRef("");
   const arrow = useRef("");
+  const accountRef = useRef("");
 
   //   Animation on scroll
   const nav = useRef("");
@@ -69,9 +70,9 @@ export default function Navbar() {
           collectionMenu.current.classList.add("display-none");
         }, 1000);
         document.removeEventListener("click", clickHandler);
-        if (e.target.id !== "account") {
-          setAccountOpner("false");
-        }
+      }
+      if (!accountRef.current.contains(e.target) && !Account.current.contains(e.target)) {
+         setAccountOpner("false");
       }
       if (!collectionMob.current.contains(e.target)) {
         collectionMobMenu.current.classList.remove("open");
@@ -238,6 +239,7 @@ export default function Navbar() {
               </div>
               {authtoken != undefined ? (
                 <div
+             ref={accountRef}
                   id="account"
                   onClick={handleAccount}
                   className="even-colums opposite-columns"
