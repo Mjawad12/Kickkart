@@ -19,7 +19,7 @@ export default function Member(props) {
       });
     });
     observer.observe(memberRef.current);
-  });
+  }, []);
   const handleClick = (e) => {
     window.scrollTo(0, 0);
     navigate(`/${e.target.id}`);

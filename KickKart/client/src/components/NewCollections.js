@@ -36,7 +36,7 @@ export default function NewCollections() {
     observer.observe(newcollectionmen.current);
     observer.observe(newcollectionwomen.current);
     observer.observe(newcollectionkid.current);
-  });
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver((els) => {
       els.forEach((el) => {
@@ -50,7 +50,7 @@ export default function NewCollections() {
     document.querySelectorAll(".collectionDiv").forEach((el) => {
       observer.observe(el);
     });
-  });
+  }, []);
 
   useEffect(() => {
     menshoes();

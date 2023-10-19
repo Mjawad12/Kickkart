@@ -135,12 +135,8 @@ export default function Log_in() {
           templateParams,
           "fsNlf011wAWaX2zIF"
         )
-        .then(() => {
-          console.log("success");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        .then(() => {})
+        .catch((error) => {});
       navigate("/verifyingOTP");
     }
   }, [OTP]);

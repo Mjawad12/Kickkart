@@ -43,7 +43,7 @@ export default function Hero() {
       });
     });
     observer.observe(document.querySelector(".carousel"));
-  });
+  }, []);
   const handleClick = (e) => {
     if (e.target.id === "fir1") {
       navigate("/SelectedShoe/652e8a34b10bc9e4af7038bf");

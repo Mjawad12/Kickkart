@@ -84,7 +84,7 @@ export default function Footer(props) {
     });
 
     observer.observe(footer.current);
-  });
+  }, []);
   const openCollection = (e) => {
     if (
       e.target.id === "collect" &&

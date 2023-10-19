@@ -59,7 +59,7 @@ export default function Product() {
     if (results > currentShoes.length) {
       setloading("false");
     }
-  });
+  }, []);
   //  Loading
   useEffect(() => {
     if (loading === "true") {

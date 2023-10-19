@@ -6,8 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function MyaccountPage() {
   const navigate = useNavigate();
   const context = useContext(Context);
-  const { authtoken, userdataFetcher, Userdata, setauthtoken, userdata } =
-    context;
+  const { userdataFetcher, Userdata, setauthtoken, userdata } = context;
   useEffect(() => {
     if (userdata !== undefined) {
     } else {

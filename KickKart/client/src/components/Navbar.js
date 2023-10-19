@@ -63,7 +63,6 @@ export default function Navbar() {
   //   closee on click
   useEffect(() => {
     var clickHandler = (e) => {
-      console.log(e.target);
       if (!collection.current.contains(e.target)) {
         collectionMenu.current.classList.remove("open");
         setTimeout(() => {

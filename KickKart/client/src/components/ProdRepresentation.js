@@ -258,7 +258,6 @@ export default function ProdRepresentation() {
                     )}
                   </div>
                   <p style={salestyle}>${Clickedshoe.rate}</p>
-                  <p>{Clickedshoe._id}</p>
                 </div>
               </div>
               <img

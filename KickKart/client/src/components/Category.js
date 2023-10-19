@@ -23,7 +23,7 @@ export default function Category() {
     observer.observe(card2.current);
     observer.observe(card3.current);
     observer.observe(categoryh2.current);
-  });
+  }, []);
 
   const handleClick = (e) => {
     window.scrollTo(0, 0);

@@ -16,7 +16,7 @@ export default function Whykickkart() {
       observer.observe(el);
       observer.observe(devref.current);
     });
-  });
+  }, []);
   return (
     <>
       <div className="container">

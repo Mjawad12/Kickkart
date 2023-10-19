@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function ShoesImageShower(props) {
   const img = useRef("");
-  useState(() => {
+  useEffect(() => {
     if (props.imgChecker === "yes") {
       setTimeout(() => {
         img.current && img.current.classList.add("fade-out");
