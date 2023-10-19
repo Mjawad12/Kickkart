@@ -24,10 +24,10 @@ export default function Mainstate(props) {
     salePrice: 50,
     type: ["men", "women", "kids"],
   });
-  const url = "http://localhost:5000/Shoes";
+  const url = `${process.env.REACT_APP_BACKEND}`;
 
   const menshoes = async () => {
-    const response = await fetch(`${url}/Men`, {
+    const response = await fetch(`${url}/Shoes/Men`, {
       method: "GET",
       headers: { "Content-type": "application/json" },
     });
@@ -36,7 +36,7 @@ export default function Mainstate(props) {
     setshoes(parsed_response);
   };
   const womenshoes = async () => {
-    const response = await fetch(`${url}/women`, {
+    const response = await fetch(`${url}/Shoes/women`, {
       method: "GET",
       headers: { "Content-type": "application/json" },
     });
@@ -45,7 +45,7 @@ export default function Mainstate(props) {
     setWomen_Shoes(parsed_response);
   };
   const kidsshoes = async () => {
-    const response = await fetch(`${url}/Kids`, {
+    const response = await fetch(`${url}/Shoes/Kids`, {
       method: "GET",
       headers: { "Content-type": "application/json" },
     });
@@ -55,7 +55,7 @@ export default function Mainstate(props) {
   };
 
   const Allshoes = async () => {
-    const response = await fetch(`${url}/Allshoes`, {
+    const response = await fetch(`${url}/Shoes/Allshoes`, {
       method: "GET",
       headers: { "Content-type": "application/json" },
     });
@@ -75,7 +75,7 @@ export default function Mainstate(props) {
     }
   };
   const Signin = async (email, password) => {
-    const response = await fetch("http://localhost:5000/users/sign-in", {
+    const response = await fetch(`${url}/users/sign-in`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -92,7 +92,7 @@ export default function Mainstate(props) {
     }
   };
   const Signup = async (name, email, password) => {
-    const response = await fetch("http://localhost:5000/users/sign-up", {
+    const response = await fetch(`${url}/users/sign-up`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, name }),
@@ -105,7 +105,7 @@ export default function Mainstate(props) {
     }
   };
   const otpVerifier = async (email) => {
-    const response = await fetch("http://localhost:5000/users/otpVerifier", {
+    const response = await fetch(`${url}/users/otpVerifier`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
@@ -117,7 +117,7 @@ export default function Mainstate(props) {
     }
   };
   const userdataFetcher = async (authtoken) => {
-    const response = await fetch("http://localhost:5000/users/userData", {
+    const response = await fetch(`${url}/users/userData`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +129,7 @@ export default function Mainstate(props) {
   };
 
   const getShoe = async (id) => {
-    const response = await fetch(`${url}/getShoes`, {
+    const response = await fetch(`${url}/Shoes/getShoes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

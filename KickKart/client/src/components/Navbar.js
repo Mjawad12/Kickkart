@@ -16,7 +16,9 @@ export default function Navbar() {
   const mobile_nav = useRef("");
   const closebtn = useRef("");
   const collection = useRef("");
+  const collectionMenu = useRef("");
   const collectionMob = useRef("");
+  const collectionMobMenu = useRef("");
   const Account = useRef("");
   const arrow = useRef("");
 
@@ -34,7 +36,7 @@ export default function Navbar() {
       });
     });
     observer.observe(nav.current);
-  });
+  }, []);
 
   //   Mobile Nav
   const HandleNav = (e) => {
@@ -57,60 +59,66 @@ export default function Navbar() {
       }, 1000);
     }
   };
+
+  //   closee on click
+  useEffect(() => {
+    var clickHandler = (e) => {
+      console.log(e.target);
+      if (!collection.current.contains(e.target)) {
+        collectionMenu.current.classList.remove("open");
+        setTimeout(() => {
+          collectionMenu.current.classList.add("display-none");
+        }, 1000);
+        document.removeEventListener("click", clickHandler);
+        if (e.target.id !== "account") {
+          setAccountOpner("false");
+        }
+      }
+      if (!collectionMob.current.contains(e.target)) {
+        collectionMobMenu.current.classList.remove("open");
+        setTimeout(() => {
+          collectionMobMenu.current.classList.add("display-none");
+        }, 1000);
+      }
+    };
+
+    document.addEventListener("mousedown", clickHandler);
+
+    return () => {
+      document.removeEventListener("mousedown", clickHandler);
+    };
+  }, []);
   //  collection opening
   const openCollection = (e) => {
-    if (
-      e.target.id === "collect" &&
-      collection.current.classList.contains("open")
-    ) {
-      collection.current.classList.remove("open");
-      setTimeout(() => {
-        collection.current.classList.add("display-none");
-      }, 1000);
-    } else if (e.target.id === "collect") {
-      collection.current.classList.remove("display-none");
-      setTimeout(() => {
-        collection.current.classList.add("open");
-      }, 100);
-    } else if (
-      e.target.id === "collectMob" &&
-      collectionMob.current.classList.contains("open")
-    ) {
-      collectionMob.current.classList.remove("open");
-      setTimeout(() => {
-        collectionMob.current.classList.add("display-none");
-      }, 1000);
-    } else if (e.target.id === "collectMob") {
-      collectionMob.current.classList.remove("display-none");
-      setTimeout(() => {
-        collectionMob.current.classList.add("open");
-      }, 100);
+    if (e.target === collection.current) {
+      if (collectionMenu.current.classList.contains("open")) {
+        collectionMenu.current.classList.remove("open");
+        setTimeout(() => {
+          collectionMenu.current.classList.add("display-none");
+        }, 1000);
+      } else {
+        collectionMenu.current.classList.remove("display-none");
+        setTimeout(() => {
+          collectionMenu.current.classList.add("open");
+        }, 100);
+      }
+    } else if (e.target === collectionMob.current) {
+      if (collectionMobMenu.current.classList.contains("open")) {
+        collectionMobMenu.current.classList.remove("open");
+        setTimeout(() => {
+          collectionMobMenu.current.classList.add("display-none");
+        }, 1000);
+      } else {
+        collectionMobMenu.current.classList.remove("display-none");
+        setTimeout(() => {
+          collectionMobMenu.current.classList.add("open");
+        }, 100);
+      }
     }
   };
   const handleClick = () => {
     closebtn.current.click();
   };
-  //   closee on click
-  useEffect(() => {
-    document.body.addEventListener("click", (e) => {
-      if (e.target !== collection.current && e.target.id !== "collect") {
-        collection.current.classList.remove("open");
-
-        setTimeout(() => {
-          collection.current.classList.add("display-none");
-        }, 1000);
-        if (e.target.id !== "account") {
-          setAccountOpner("false");
-        }
-      }
-      if (e.target !== collectionMob.current && e.target.id !== "collectMob") {
-        collectionMob.current.classList.remove("open");
-        setTimeout(() => {
-          collectionMob.current.classList.add("display-none");
-        }, 1000);
-      }
-    });
-  }, []);
   useEffect(() => {
     if (location.pathname !== "/") {
       setnavStyle({
@@ -165,12 +173,6 @@ export default function Navbar() {
       );
       searchWindow.classList.add("heightFull");
     }, [200]);
-
-    // if (SearchShow === "false") {
-    //   setSearchShow("true");
-    // } else {
-    //   setSearchShow("false");
-    // }
   };
   return (
     <>
@@ -197,7 +199,7 @@ export default function Navbar() {
             <li>
               <Link to="Product">All Products</Link>
             </li>
-            <li id="collect" onClick={openCollection}>
+            <li ref={collection} id="collect" onClick={openCollection}>
               <Link style={{ pointerEvents: "none" }}>
                 COLLECTIONS
                 <i
@@ -206,7 +208,7 @@ export default function Navbar() {
                 ></i>
               </Link>
               <ul
-                ref={collection}
+                ref={collectionMenu}
                 className="Collections | even-columns opposite-columns display-none"
               >
                 <li>
@@ -292,10 +294,10 @@ export default function Navbar() {
             <li onClick={handleClick}>
               <Link to="Product">All Products</Link>
             </li>
-            <li id="collectMob" onClick={openCollection}>
+            <li ref={collectionMob} id="collectMob" onClick={openCollection}>
               COLLECTIONS <i className="fa-solid fa-caret-down"></i>
               <ul
-                ref={collectionMob}
+                ref={collectionMobMenu}
                 className="Collections | even-columns opposite-columns display-none"
               >
                 <li onClick={handleClick}>
