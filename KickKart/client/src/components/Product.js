@@ -15,7 +15,6 @@ export default function Product() {
   const [results, setresults] = useState(10);
   const [loading, setloading] = useState("false");
   const [ArtificailLoading, setArtificailLoading] = useState("false");
-
   //  getting All shoes
   useEffect(() => {
     if (location.pathname === "/Sale") {
@@ -41,17 +40,16 @@ export default function Product() {
     setTimeout(() => {
       setArtificailLoading("false");
     }, 1000);
+
+    if (currentShoes.length < results) {
+    }
   }, [currentShoes]);
   //  Loading Animation
   useEffect(() => {
     const observer = new IntersectionObserver((els) => {
       els.forEach((el) => {
         if (el.isIntersecting) {
-          if (results >= currentShoes.length) {
-            setloading("false");
-          } else {
-            setloading("true");
-          }
+          setloading("true");
         } else {
           setloading("false");
         }
@@ -60,13 +58,16 @@ export default function Product() {
     setTimeout(() => {
       checker.current && observer.observe(checker.current);
     }, 2000);
-    if (results >= currentShoes.length) {
+    if (results > currentShoes.length) {
       setloading("false");
     }
   }, []);
   //  Loading
   useEffect(() => {
     if (loading === "true") {
+      if (results > currentShoes.length) {
+        setloading("false");
+      }
       setTimeout(() => {
         setresults(results + 10);
       }, 1000);

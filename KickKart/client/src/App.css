@@ -1796,7 +1796,9 @@ hr {
   justify-content: flex-start;
   gap: 4rem;
 }
-
+.products a {
+  align-self: flex-start;
+}
 /*  Product Card */
 .productCard {
   align-items: flex-start;
