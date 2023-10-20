@@ -1,6 +1,6 @@
 # Kick👟Kart - Your Ultimate Shoe Shopping Destination
 
-![Project Logo](/FrontEnd/src/components/img/logo_SwiftREntals-min.png) <!-- If you have a project logo, include it here -->
+![Project Logo](/KickKart/client/src/images/Kickkart logo.png) <!-- If you have a project logo, include it here -->
 
 
 ## Table of Contents
