@@ -19,7 +19,7 @@ export default function Navbar() {
   const collectionMenu = useRef("");
   const collectionMob = useRef("");
   const collectionMobMenu = useRef("");
-  const Account = useRef("");
+  const Account = useRef(null);
   const arrow = useRef("");
   const accountRef = useRef("");
 
@@ -71,8 +71,15 @@ export default function Navbar() {
         }, 1000);
         document.removeEventListener("click", clickHandler);
       }
-      if (!accountRef.current.contains(e.target) && !Account.current.contains(e.target)) {
-         setAccountOpner("false");
+      if (
+        accountRef.current !== undefined &&
+        accountRef.current !== null &&
+        accountRef.current !== ""
+      ) {
+        if (!accountRef.current.contains(e.target)) {
+          console.log("e");
+          setAccountOpner("false");
+        }
       }
       if (!collectionMob.current.contains(e.target)) {
         collectionMobMenu.current.classList.remove("open");
@@ -239,7 +246,7 @@ export default function Navbar() {
               </div>
               {authtoken != undefined ? (
                 <div
-             ref={accountRef}
+                  ref={accountRef}
                   id="account"
                   onClick={handleAccount}
                   className="even-colums opposite-columns"
@@ -250,7 +257,13 @@ export default function Navbar() {
                     className="fa-solid fa-user"
                   ></i>
                   {AccountOpner === "true" && (
-                    <div ref={arrow} className="arrow-up fade-in"></div>
+                    <>
+                      <div ref={arrow} className="arrow-up fade-in"></div>
+                      <UserAccount
+                        setAccountOpner={setAccountOpner}
+                        ref={Account}
+                      ></UserAccount>
+                    </>
                   )}
                 </div>
               ) : (
@@ -274,7 +287,6 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
-          {AccountOpner === "true" && <UserAccount ref={Account}></UserAccount>}
         </div>
       </div>
       <div
