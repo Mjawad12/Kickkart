@@ -11,7 +11,11 @@ const UserAccount = React.forwardRef((props, ref) => {
     localStorage.removeItem("authToken");
     navigate("/");
     window.scrollTo(0, 0);
+    ref.current.classList.remove("fade-out");
+    ref.current.classList.remove("heightFull");
+    props.setAccountOpner('false')
   };
+
   return (
     <>
       <div

@@ -19,8 +19,9 @@ export default function Navbar() {
   const collectionMenu = useRef("");
   const collectionMob = useRef("");
   const collectionMobMenu = useRef("");
-  const Account = useRef("");
+  const Account = useRef(null);
   const arrow = useRef("");
+  const accountRef = useRef("");
 
   //   Animation on scroll
   const nav = useRef("");
@@ -42,7 +43,6 @@ export default function Navbar() {
   const HandleNav = (e) => {
     window.scrollTo(0, 0);
     if (e.target.id === "open") {
-      document.body.classList.toggle("fade");
       document.body.classList.toggle("no-scroll");
       mobile_nav.current.classList.toggle("display-none");
       closebtn.current.classList.toggle("display-none");
@@ -50,7 +50,6 @@ export default function Navbar() {
         mobile_nav.current.classList.toggle("open");
       }, 100);
     } else if (e.target.id === "close") {
-      document.body.classList.toggle("fade");
       document.body.classList.toggle("no-scroll");
       mobile_nav.current.classList.toggle("open");
       setTimeout(() => {
@@ -69,7 +68,14 @@ export default function Navbar() {
           collectionMenu.current.classList.add("display-none");
         }, 1000);
         document.removeEventListener("click", clickHandler);
-        if (e.target.id !== "account") {
+      }
+      if (
+        accountRef.current !== undefined &&
+        accountRef.current !== null &&
+        accountRef.current !== ""
+      ) {
+        if (!accountRef.current.contains(e.target)) {
+          console.log("e");
           setAccountOpner("false");
         }
       }
@@ -238,6 +244,7 @@ export default function Navbar() {
               </div>
               {authtoken != undefined ? (
                 <div
+                  ref={accountRef}
                   id="account"
                   onClick={handleAccount}
                   className="even-colums opposite-columns"
@@ -248,7 +255,13 @@ export default function Navbar() {
                     className="fa-solid fa-user"
                   ></i>
                   {AccountOpner === "true" && (
-                    <div ref={arrow} className="arrow-up fade-in"></div>
+                    <>
+                      <div ref={arrow} className="arrow-up fade-in"></div>
+                      <UserAccount
+                        setAccountOpner={setAccountOpner}
+                        ref={Account}
+                      ></UserAccount>
+                    </>
                   )}
                 </div>
               ) : (
@@ -272,7 +285,6 @@ export default function Navbar() {
               </Link>
             </div>
           </div>
-          {AccountOpner === "true" && <UserAccount ref={Account}></UserAccount>}
         </div>
       </div>
       <div

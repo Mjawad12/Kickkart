@@ -236,7 +236,7 @@ hr {
   padding-inline: var(--size-300);
   margin-inline: auto;
 }
-.overflow_Wrapper{
+.overflow_Wrapper {
   overflow-x: hidden;
 }
 .Container-footer {
@@ -2751,7 +2751,7 @@ hr {
 /* WishList */
 
 .Wish_List {
-  height: 70vh;
+  min-height: 70vh;
   padding-inline: 1rem;
 }
 .WishList {
@@ -3202,7 +3202,7 @@ hr {
 }
 @media (max-width: 40em) {
   .search_nav .Mainlogo {
-    display:  none;
+    display: none;
   }
   .SearchRepresentation {
     grid-template-columns: 1fr 1fr;
