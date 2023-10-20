@@ -1,6 +1,6 @@
 # Kick👟Kart - Your Ultimate Shoe Shopping Destination
 
-![Project Logo](/KickKart/client/src/images/Kickkart-logo.png) 
+![Project Logo](/KickKart/client/src/images/Kickkart%20logo.png) 
 
 
 ## Table of Contents
