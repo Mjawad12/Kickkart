@@ -43,7 +43,7 @@ export default function Navbar() {
   const HandleNav = (e) => {
     window.scrollTo(0, 0);
     if (e.target.id === "open") {
-      document.body.classList.toggle("fade");
+
       document.body.classList.toggle("no-scroll");
       mobile_nav.current.classList.toggle("display-none");
       closebtn.current.classList.toggle("display-none");
@@ -51,7 +51,7 @@ export default function Navbar() {
         mobile_nav.current.classList.toggle("open");
       }, 100);
     } else if (e.target.id === "close") {
-      document.body.classList.toggle("fade");
+
       document.body.classList.toggle("no-scroll");
       mobile_nav.current.classList.toggle("open");
       setTimeout(() => {
