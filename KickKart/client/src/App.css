@@ -2752,7 +2752,7 @@ hr {
 /* WishList */
 
 .Wish_List {
-  height: 70vh;
+  min-height: 70vh;
   padding-inline: 1rem;
 }
 .WishList {
