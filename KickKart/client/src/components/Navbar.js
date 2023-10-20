@@ -9,7 +9,7 @@ export default function Navbar() {
   const context = useContext(Context);
   const { authtoken, userdataFetcher, userdata } = context;
   const [navStyle, setnavStyle] = useState({});
-  const [SearchShow, setSearchShow] = useState("true");
+  const [SearchShow] = useState("true");
   const [AccountOpner, setAccountOpner] = useState("false");
   const location = useLocation();
   //    refs
