@@ -43,8 +43,8 @@ dd {
   margin: 0;
 }
 
-ul[role=list],
-ol[role=list] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -60,7 +60,7 @@ body {
 
 a:not([class]) {
   -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 img,
@@ -1447,7 +1447,12 @@ hr {
 .review > img.Rimg {
   border-radius: 100vw;
   max-width: 4rem;
-  box-shadow: -60px 0px 0px 0px rgba(225, 225, 225, 0.608), -50px 0px 0px 0px rgba(225, 225, 225, 0.608), -30px 0px 0px 0px rgba(225, 225, 225, 0.608), -40px 0px 0px 0px rgba(225, 225, 225, 0.608), -20px 0px 0px 0px rgba(225, 225, 225, 0.608), -10px 0px 0px 0px rgba(225, 225, 225, 0.608);
+  box-shadow: -60px 0px 0px 0px rgba(225, 225, 225, 0.608),
+    -50px 0px 0px 0px rgba(225, 225, 225, 0.608),
+    -30px 0px 0px 0px rgba(225, 225, 225, 0.608),
+    -40px 0px 0px 0px rgba(225, 225, 225, 0.608),
+    -20px 0px 0px 0px rgba(225, 225, 225, 0.608),
+    -10px 0px 0px 0px rgba(225, 225, 225, 0.608);
 }
 
 .review > h4 {
@@ -2310,7 +2315,6 @@ hr {
   transition: 0.7s all ease;
   overflow: hidden;
 }
-
 .reviewsDiv {
   width: 100%;
 }
@@ -3211,4 +3215,4 @@ hr {
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
   }
-}/*# sourceMappingURL=App.css.map */
+} /*# sourceMappingURL=App.css.map */
