@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
-import logo from "../images/Kickkart logo.png";
+import logo from "../images/Kickkart logo.webp";
 import { useNavigate } from "react-router-dom";
 import Context from "./context/Context";
 

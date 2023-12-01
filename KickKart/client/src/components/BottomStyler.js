@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import bimg from "../images/styled.jpg";
+import bimg from "../images/styled.webp";
 import { useNavigate } from "react-router-dom";
 export default function BottomStyler() {
   const navigate = useNavigate();

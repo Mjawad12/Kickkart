@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../images/Sec1/shoes2.webp";
 import emailjs from "@emailjs/browser";
-import logo from "../images/Kickkart logo.png";
+import logo from "../images/Kickkart logo.webp";
 import Context from "./context/Context";
 import { useNavigate } from "react-router-dom";
 export default function Log_in() {

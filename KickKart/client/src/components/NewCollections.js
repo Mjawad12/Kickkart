@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Collectioncard from "./Collectioncard";
 import Context from "./context/Context";
-import shoe from "../images/Separator.png";
+import shoe from "../images/Separator.webp";
 
 export default function NewCollections() {
   const collection = useRef("");

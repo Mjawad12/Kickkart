@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import logo from "../images/Kickkart logo.png";
+import logo from "../images/Kickkart logo.webp";
 
 export default function Footer(props) {
   const kick = useRef("");
